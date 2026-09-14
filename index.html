@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>workaholic muchachos</title>
+<meta name="description" content="Estudio de juegos hecho en Argentina. Game studio made in Argentina.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!--
+  La pagina del estudio, en la raiz de fluna89.github.io.
+
+  Existe porque el "Sitio web" de la ficha de Play apunta aca: sin una pagina en
+  la raiz, quien tocaba ese enlace caia en un 404 de GitHub. En la misma raiz
+  vive app-ads.txt, que es lo que AdMob busca.
+
+  Sin nada de afuera: las tipografias estan alojadas aca y no hay scripts de
+  terceros. Un estudio que publica una politica de privacidad no deberia tener
+  una pagina que avisa a Google Fonts cada vez que alguien entra.
+
+  Los dos idiomas estan escritos y se muestra uno: el del navegador, o el que se
+  elija arriba. Con ?lang=en o ?lang=es se fuerza, que es como se verifica.
+-->
+<style>
+  @font-face { font-family: "Archivo Black"; src: url("fonts/ArchivoBlack-Regular.ttf") format("truetype"); font-display: swap; }
+  @font-face { font-family: "Zilla Slab"; src: url("fonts/ZillaSlab-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Zilla Slab"; src: url("fonts/ZillaSlab-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+
+  :root {
+    --felt: #141a26;
+    --panel: #1e2635;
+    --border: #33415a;
+    --text: #e9eef5;
+    --muted: #7b899c;
+    --red: #e3202a;
+    --red-light: #f2434c;
+    --bone: #f7f2ea;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; background: var(--felt); color: var(--text); }
+
+  body {
+    font: 400 1.125rem/1.55 "Zilla Slab", Georgia, "Times New Roman", serif;
+    padding-inline: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page { width: 100%; max-width: 560px; padding-block: 28px 40px; }
+
+  .langs { display: flex; justify-content: flex-end; gap: 6px; }
+  .langs button {
+    font: 600 0.9rem "Zilla Slab", Georgia, serif;
+    color: var(--muted);
+    background: transparent;
+    border: 2px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 14px;
+    cursor: pointer;
+  }
+  .langs button[aria-pressed="true"] { color: var(--bone); border-color: var(--red); background: var(--red); }
+
+  header { text-align: center; margin-top: 8px; }
+  header img { width: min(220px, 60vw); height: auto; display: block; margin-inline: auto; }
+  h1 {
+    /* El nombre ya esta en el dibujo; el titulo queda para lectores de pantalla
+       y buscadores, sin repetirlo en grande. */
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .tagline { color: var(--muted); margin: 14px 0 0; font-weight: 600; }
+
+  h2 {
+    font: 400 0.95rem "Archivo Black", Impact, "Arial Black", sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin: 40px 0 14px;
+  }
+
+  .game {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+  .game + .game { margin-top: 14px; }
+  .game img { width: 88px; height: 88px; border-radius: 20px; flex: none; }
+  .game h3 { font: 400 1.35rem/1.2 "Archivo Black", Impact, "Arial Black", sans-serif; margin: 0; color: var(--bone); }
+  .game p { margin: 4px 0 0; }
+  .game .soon { color: var(--muted); font-size: 0.95rem; }
+  .game a { color: var(--red-light); font-weight: 600; text-underline-offset: 3px; }
+  .game a:hover { color: var(--bone); }
+
+  .contact { margin: 0; }
+  .contact a { color: var(--bone); font-weight: 600; font-size: 1.2rem; text-underline-offset: 4px; overflow-wrap: anywhere; }
+
+  footer { color: var(--muted); font-size: 0.9rem; text-align: center; margin-top: 44px; }
+
+  [hidden] { display: none !important; }
+
+  @media (max-width: 400px) {
+    .game { gap: 14px; padding: 14px; }
+    .game img { width: 64px; height: 64px; border-radius: 15px; }
+    .game h3 { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="langs" aria-label="Idioma / Language">
+    <button type="button" data-set="es" aria-pressed="true">Español</button>
+    <button type="button" data-set="en" aria-pressed="false">English</button>
+  </nav>
+
+  <header>
+    <img src="img/estudio.png" width="393" height="429" alt="workaholic muchachos">
+    <h1>workaholic muchachos</h1>
+    <p class="tagline" lang="es">Juegos hechos en Argentina, a puro mate.</p>
+    <p class="tagline" lang="en" hidden>Games made in Argentina, fueled by mate.</p>
+  </header>
+
+  <h2 lang="es">Nuestros juegos</h2>
+  <h2 lang="en" hidden>Our games</h2>
+
+  <article class="game">
+    <img src="img/oh-diablos@2x.png" width="256" height="256" alt="">
+    <div>
+      <h3>Oh Diablos</h3>
+      <p lang="es">La pocha —la podrida— de toda la vida, para el celular.</p>
+      <p lang="en" hidden>Oh Hell, the classic trick-taking card game, on your phone.</p>
+      <p class="soon" lang="es">Próximamente en Google Play</p>
+      <p class="soon" lang="en" hidden>Coming soon to Google Play</p>
+      <p lang="es"><a href="oh-diablos-privacy/">Política de privacidad</a></p>
+      <p lang="en" hidden><a href="oh-diablos-privacy/">Privacy policy</a></p>
+    </div>
+  </article>
+
+  <article class="game">
+    <div>
+      <h3>Blackjack Solitaire</h3>
+      <p lang="es"><a href="blackjack-privacy/">Política de privacidad</a></p>
+      <p lang="en" hidden><a href="blackjack-privacy/">Privacy policy</a></p>
+    </div>
+  </article>
+
+  <h2 lang="es">Contacto</h2>
+  <h2 lang="en" hidden>Contact</h2>
+  <p class="contact"><a href="mailto:workaholic.muchachos@gmail.com">workaholic.muchachos@gmail.com</a></p>
+
+  <footer>© 2026 workaholic muchachos</footer>
+
+</div>
+<script>
+  (function () {
+    var LANGS = ["es", "en"];
+
+    function pick() {
+      var forced = new URLSearchParams(location.search).get("lang");
+      if (LANGS.indexOf(forced) >= 0) return forced;
+      try {
+        var saved = localStorage.getItem("lang");
+        if (LANGS.indexOf(saved) >= 0) return saved;
+      } catch (e) {}
+      // Castellano para quien lo tenga en el navegador; ingles para todos los
+      // demas, igual que el juego.
+      return (navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+    }
+
+    function apply(code) {
+      document.documentElement.lang = code;
+      document.querySelectorAll("[lang]:not(html)").forEach(function (el) {
+        el.hidden = el.getAttribute("lang") !== code;
+      });
+      document.querySelectorAll(".langs button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.set === code));
+      });
+    }
+
+    document.querySelectorAll(".langs button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        try { localStorage.setItem("lang", b.dataset.set); } catch (e) {}
+        apply(b.dataset.set);
+      });
+    });
+
+    apply(pick());
+  })();
+</script>
+</body>
+</html>
