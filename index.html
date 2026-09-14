@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>workaholic muchachos</title>
-<meta name="description" content="Estudio de juegos hecho en Argentina. Game studio made in Argentina.">
+<meta name="description" content="Juegos hechos con pasión, a puro mate. Games made with passion, fueled by mate.">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <!--
@@ -65,13 +65,23 @@
   .langs button[aria-pressed="true"] { color: var(--bone); border-color: var(--red); background: var(--red); }
 
   header { text-align: center; margin-top: 8px; }
-  header img { width: min(220px, 60vw); height: auto; display: block; margin-inline: auto; }
+  /* Hasta 340 px y no mas: el dibujo original mide 393 de ancho, y estirarlo
+     por encima de eso no le agrega detalle, solo lo ablanda. */
+  header img { width: min(340px, 80vw); height: auto; display: block; margin-inline: auto; }
   h1 {
     /* El nombre ya esta en el dibujo; el titulo queda para lectores de pantalla
        y buscadores, sin repetirlo en grande. */
     position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
   }
-  .tagline { color: var(--muted); margin: 14px 0 0; font-weight: 600; }
+  .tagline { color: var(--muted); margin: 18px 0 0; font-weight: 600; }
+  .emojis {
+    margin: 6px 0 0;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    /* Las fuentes de emoji del sistema, antes que la del texto: Zilla Slab no
+       trae ninguno y sin esto algunos navegadores los dibujan en blanco y negro. */
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  }
 
   h2 {
     font: 400 0.95rem "Archivo Black", Impact, "Arial Black", sans-serif;
@@ -124,8 +134,9 @@
   <header>
     <img src="img/estudio.png" width="393" height="429" alt="workaholic muchachos">
     <h1>workaholic muchachos</h1>
-    <p class="tagline" lang="es">Juegos hechos en Argentina, a puro mate.</p>
-    <p class="tagline" lang="en" hidden>Games made in Argentina, fueled by mate.</p>
+    <p class="tagline" lang="es">Juegos hechos con pasión, a puro mate</p>
+    <p class="tagline" lang="en" hidden>Games made with passion, fueled by mate</p>
+    <p class="emojis" aria-hidden="true">❤️🧉</p>
   </header>
 
   <h2 lang="es">Nuestros juegos</h2>
@@ -141,14 +152,6 @@
       <p class="soon" lang="en" hidden>Coming soon to Google Play</p>
       <p lang="es"><a href="oh-diablos-privacy/">Política de privacidad</a></p>
       <p lang="en" hidden><a href="oh-diablos-privacy/">Privacy policy</a></p>
-    </div>
-  </article>
-
-  <article class="game">
-    <div>
-      <h3>Blackjack Solitaire</h3>
-      <p lang="es"><a href="blackjack-privacy/">Política de privacidad</a></p>
-      <p lang="en" hidden><a href="blackjack-privacy/">Privacy policy</a></p>
     </div>
   </article>
 
